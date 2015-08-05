@@ -15,10 +15,11 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('orders/home', 'OrdersController@index');
-Route::get('orders/new', 'OrdersController@new');
+Route::get('orders', 'OrdersController@index');
+Route::get('orders/{id}', 'OrdersController@show');
+Route::get('orders/create', 'OrdersController@create');
 
-Route::get('users/home', 'UsersController@index');
+Route::get('users/index', 'UsersController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

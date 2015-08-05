@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use App\General_info;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -15,6 +15,9 @@ class OrdersController extends Controller {
 	public function index()
 	{
 		//
+        $General = General_info::all();
+        return view('orders', compact('General'));
+        //return $General;
 	}
 
 	/**
@@ -46,6 +49,9 @@ class OrdersController extends Controller {
 	public function show($id)
 	{
 		//
+        $General = General_info::find($id);
+        //return $id;
+        return view('orders', compact('General'));
 	}
 
 	/**
