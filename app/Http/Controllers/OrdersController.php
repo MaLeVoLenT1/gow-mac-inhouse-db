@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers;
 use App\General_info;
 use App\Http\Requests;
+use Carbon\Carbon;
+use Request;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+
+
 
 class OrdersController extends Controller {
 
@@ -16,7 +19,7 @@ class OrdersController extends Controller {
 	{
 		//
         $General = General_info::all();
-        return view('orders', compact('General'));
+        return view('orders.orders', compact('General'));
         //return $General;
 	}
 
@@ -28,6 +31,7 @@ class OrdersController extends Controller {
 	public function create()
 	{
 		//
+        return view('orders.create');
 	}
 
 	/**
@@ -38,6 +42,11 @@ class OrdersController extends Controller {
 	public function store()
 	{
 		//
+        $input= Request::all();
+        $input['published_at'] = Carbon::now();
+        General_info::create($input);
+        return redirect('orders');
+        //return $input;
 	}
 
 	/**
@@ -50,8 +59,9 @@ class OrdersController extends Controller {
 	{
 		//
         $General = General_info::find($id);
+
         //return $id;
-        return view('orders', compact('General'));
+        return view('orders.show', compact('General'));
 	}
 
 	/**

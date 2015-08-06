@@ -1,7 +1,6 @@
 @extends('master')
 
 @section('css')
-    <link href="{{ asset('/css/menu.css') }}" rel="stylesheet">
 @endsection
 
 @section('header')
@@ -13,7 +12,7 @@
 <h1>Orders</h1>
     @foreach($General as $General_info)
         <article>
-            <h2> <a href="#" >{{$General_info->customer_name}}</a></h2>
+            <h2> <a href="{{action("OrdersController@show", [$General_info->id])}}" >{{$General_info->customer_name}}</a></h2>
             ID: {{$General_info->id}}<br>
             Address: {{$General_info->address}}<br>
             Order Number: {{$General_info->order_number}}<br>

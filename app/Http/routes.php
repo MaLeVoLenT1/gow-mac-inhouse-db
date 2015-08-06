@@ -16,8 +16,11 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::get('orders', 'OrdersController@index');
-Route::get('orders/{id}', 'OrdersController@show');
 Route::get('orders/create', 'OrdersController@create');
+Route::post('orders', 'OrdersController@store');
+Route::get('orders/{id}', 'OrdersController@show');
+
+
 
 Route::get('users/index', 'UsersController@index');
 
