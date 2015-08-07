@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 use App\General_info;
 use App\Http\Requests;
-use Carbon\Carbon;
+use App\Http\Requests\OrderRequest;
 use Request;
 use App\Http\Controllers\Controller;
 
@@ -9,92 +9,55 @@ use App\Http\Controllers\Controller;
 
 
 class OrdersController extends Controller {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+//Index
 	public function index()
 	{
-		//
         $General = General_info::all();
         return view('orders.orders', compact('General'));
-        //return $General;
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+//Create Record
 	public function create()
 	{
-		//
         return view('orders.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+//Store Record
+	public function store(OrderRequest $request)
 	{
-		//
-        $input= Request::all();
-        $input['published_at'] = Carbon::now();
-        General_info::create($input);
+        General_info::create( $request->all());
         return redirect('orders');
-        //return $input;
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+//Show Record
 	public function show($id)
 	{
-		//
-        $General = General_info::find($id);
-
-        //return $id;
+        $General = General_info::findorfail($id);
         return view('orders.show', compact('General'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+//Edit Record
 	public function edit($id)
 	{
-		//
+        $General = General_info::findorfail($id);
+        return view('orders.edit', compact('General'));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+//Update Record
+	public function update($id, OrderRequest $request)
 	{
-		//
+        $General = General_info::findorfail($id);
+        $General->update($request-> all());
+        return redirect('orders');
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+//Delete Record
 	public function destroy($id)
 	{
-		//
+        $General = General_info::find($id);
+        $General::destroy($id);
+        return redirect('orders');
+
 	}
 
 }

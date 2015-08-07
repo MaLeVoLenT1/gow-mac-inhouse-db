@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>Gow-Mac</title>
 
 	<link href="{{asset('/css/app.css')}}" rel="stylesheet">
     @yield('master_css')
@@ -34,7 +34,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{url('orders/index')}}">Orders</a></li>
+					<li><a href="{{url('/orders')}}">Orders</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

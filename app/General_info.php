@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -33,4 +34,8 @@ class General_info extends Model {
 
     ];
 
+    public function setDateOrdered($date)
+    {
+        $this->attributes['date_ordered'] = Carbon::createFromFormat('y-m-d', $date);
+    }
 }
