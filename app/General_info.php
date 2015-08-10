@@ -38,4 +38,9 @@ class General_info extends Model {
     {
         $this->attributes['date_ordered'] = Carbon::createFromFormat('y-m-d', $date);
     }
+    public function instruments()
+    {
+        return $this -> hasMany('App\Instrument');
+
+    }
 }
