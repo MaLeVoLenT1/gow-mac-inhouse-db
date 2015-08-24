@@ -27,6 +27,7 @@
             Updated At: {{$General_info->updated_at}}<br>
             <br>
         </article>
+
     @endforeach
 @endsection
 
