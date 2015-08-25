@@ -25,6 +25,9 @@
             <br>
             Created At: {{$General_info->created_at}}<br>
             Updated At: {{$General_info->updated_at}}<br>
+            @foreach($General_info -> instrument as $instrument)
+                Instrument Type: {{$instrument->instrument_type}}
+            @endforeach
             <br>
         </article>
 

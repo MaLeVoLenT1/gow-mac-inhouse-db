@@ -18,6 +18,8 @@ class CompleteOrderController extends Controller {
 	 */
 	public function index()
 	{
+        $general_information = General_info::all();
+
 		//
 	}
 
