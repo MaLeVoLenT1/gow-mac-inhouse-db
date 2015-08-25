@@ -3,13 +3,13 @@
 use Illuminate\Database\Eloquent\Model;
 
 
-class Attachments extends Model {
+class Base_Gas_Concentration extends Model {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'attachments';
+    protected $table = 'base_gas_concentration';
 
     /**
      * The attributes that are mass assignable.
@@ -17,10 +17,7 @@ class Attachments extends Model {
      * @var array
      */
     protected $fillable = [
-        'instrument_id',
-        'filename',
-        'mime',
-        'original_filename',
+
     ];
 
     /**

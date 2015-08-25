@@ -10,16 +10,17 @@ use Illuminate\Http\Request;
 
 
 class AttachmentsController extends Controller {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 //Index
 	public function index()
 	{
         $attachments = Attachments::all();
-        if (!$attachments->isEmpty()) {
-            return 'Nothing here to see';
-        }else{
-            return view('attachments.attachments', compact('attachments'));
-        }
+        return view('attachments.attachments', compact('attachments'));
+        //return $attachments;
+
 
 
 	}

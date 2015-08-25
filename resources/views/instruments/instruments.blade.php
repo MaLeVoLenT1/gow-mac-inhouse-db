@@ -39,7 +39,18 @@
             Design Status: {{$instrument->design_status}}<br>
             Notes: {{$instrument->notes}}<br>
             <hr>
-            Attachments & Drawings| <a href="{{url('instruments/attachments/add')}}">ADD New</a>
+            Attachments & Drawings| <a href="{{url('attachments/add')}}">ADD New</a>
+            <form action="add" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="file" name="filefield">
+                <input type="submit">
+            </form>
+            <h1>List</h1>
+            <div class="row">
+                <ul>
+
+                </ul>
+            </div>
             <hr/>
             <hr>
             Other Devices | <a href="{{url('instruments/other_devices/add')}}">ADD New</a>

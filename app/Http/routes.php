@@ -16,12 +16,16 @@ Route::get('home', 'HomeController@index');
 Route::resource('customers', 'OrdersController');
 
 Route::resource(    'instruments',                          'InstrumentsController');
-Route::get(         'instruments/attachments',              'AttachmentsController@index');
-Route::get(         'instruments/attachments/{filename}',   ['as'=>'getentry', 'uses'=>'AttachmentsController@get']);
-Route::get(         'instruments/attachments/add',          ['as'=>'addentry', 'uses'=>'AttachmentsController@add']);
-Route::resource(    'instruments/impurities',              'ImpuritiesController');
-Route::resource(    'instruments/base_gas',                'BaseGasController');
-Route::resource(    'instruments/other_devices',           'OtherDevicesController');
+Route::get(         'attachments',              'AttachmentsController@index');
+
+Route::get(         'attachments/add',          ['as'=>'addentry', 'uses'=>'AttachmentsController@add']);
+Route::get(         'attachments/{filename}',   ['as'=>'getentry', 'uses'=>'AttachmentsController@get']);
+
+Route::resource(    'impurities',              'ImpuritiesController');
+Route::resource(    'base_gas',                'BaseGasController');
+Route::resource(    'other_devices',           'OtherDevicesController');
+Route::resource(    'complete_orders',           'CompleteOrderController');
+
 
 Route::get('users/index', 'UsersController@index');
 

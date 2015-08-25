@@ -47,6 +47,12 @@ class Instrument extends Model {
     public function attachment(){
         return $this -> hasMany('App\Attachments');
     }
+    public function impurities(){
+        return $this -> hasMany('App\Impurities');
+    }
+    public function base_gas_concentration(){
+        return $this -> hasMany('App\Base_Gas_Concentration');
+    }
 
 
 }
