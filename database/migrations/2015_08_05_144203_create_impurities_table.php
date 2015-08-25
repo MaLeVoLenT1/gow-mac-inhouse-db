@@ -15,6 +15,9 @@ class CreateImpuritiesTable extends Migration {
 		Schema::create('impurities', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->integer('percentage');
+            $table->string('name');
+            $table->integer('instrument_id');
 			$table->timestamps();
 		});
 	}

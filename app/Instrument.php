@@ -44,6 +44,9 @@ class Instrument extends Model {
     public function customer(){
         return $this -> belongsTo('App\General_info');
     }
+    public function attachment(){
+        return $this -> hasMany('App\Attachments');
+    }
 
 
 }

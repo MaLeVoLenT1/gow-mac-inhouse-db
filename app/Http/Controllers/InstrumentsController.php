@@ -1,93 +1,67 @@
 <?php namespace App\Http\Controllers;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Instrument;
+use App\Http\Requests;
 use App\Http\Requests\InstrumentRequest;
+use Request;
+use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+
+
+
 
 class InstrumentsController extends Controller {
     public function __construct()
     {
         $this->middleware('auth');
     }
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+//Index
 	public function index()
 	{
-		//
         $instruments = Instrument::all();
         return view('instruments.instruments', compact('instruments'));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
+//Create Record
 	public function create()
 	{
-		//
         return view('instruments.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
+//Store Record
 	public function store(InstrumentRequest $request)
 	{
-		//
         Instrument::create($request ->all());
+        return redirect('instruments');
     }
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+//Show Record
 	public function show($id)
 	{
-		//
+        $Instruments = Instrument::findorfail($id);
+        return view('instruments.show', compact('Instruments'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+//Edit Record
 	public function edit($id)
 	{
-		//
+        $Instruments = Instrument::findorfail($id);
+        return view('instruments.edit', compact('Instruments'));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
+//Update Record
+	public function update($id, InstrumentRequest $request)
 	{
-		//
+        $Instruments = Instrument::findorfail($id);
+        $Instruments->update($request-> all());
+        return redirect('instruments');
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+//Destroy Record
 	public function destroy($id)
 	{
-		//
+		$Instruments = Instrument::find($id);
+        $Instruments::destroy($id);
+        return redirect('instruments');
 	}
 
 }

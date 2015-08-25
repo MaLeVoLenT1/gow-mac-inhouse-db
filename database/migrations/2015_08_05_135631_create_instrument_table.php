@@ -33,8 +33,7 @@ class CreateInstrumentTable extends Migration {
 
             $table -> foreign('customer_id')
                     ->references('id')
-                    -> on('general_info')
-                    -> onDelete('cascade');
+                    -> on('general_info');
 
 
 		});
