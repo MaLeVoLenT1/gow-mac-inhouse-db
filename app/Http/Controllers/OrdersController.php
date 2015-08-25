@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 
 class OrdersController extends Controller {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 //Index
 	public function index()
 	{

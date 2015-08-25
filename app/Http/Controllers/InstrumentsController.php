@@ -3,11 +3,15 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Instrument;
+use App\Http\Requests\InstrumentRequest;
 
 use Illuminate\Http\Request;
 
 class InstrumentsController extends Controller {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -28,6 +32,7 @@ class InstrumentsController extends Controller {
 	public function create()
 	{
 		//
+        return view('instruments.create');
 	}
 
 	/**
@@ -35,10 +40,11 @@ class InstrumentsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(InstrumentRequest $request)
 	{
 		//
-	}
+        Instrument::create($request ->all());
+    }
 
 	/**
 	 * Display the specified resource.

@@ -40,7 +40,8 @@
 			<div class="content">
 				<div class="title">Gow-Mac</div>
 				<div class="quote">Instrument Company</div>
-			</div>
+                <a href="{{url("/customers")}}">Customers</a> | <a href="{{url("/instruments")}}">Instruments</a> | <a href="{{url("/orders")}}">Orders</a>
+            </div>
 		</div>
 	</body>
 </html>
