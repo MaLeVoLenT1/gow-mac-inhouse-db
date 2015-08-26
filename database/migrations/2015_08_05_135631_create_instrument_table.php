@@ -28,10 +28,10 @@ class CreateInstrumentTable extends Migration {
             $table->char('design_status');
             $table->char('notes');
 
-            $table->integer('customer_id') -> unsigned();
+            $table->integer('general_info_id') -> unsigned();
 			$table->timestamps();
 
-            $table -> foreign('customer_id')
+            $table -> foreign('general_info_id')
                     ->references('id')
                     -> on('general_info');
 

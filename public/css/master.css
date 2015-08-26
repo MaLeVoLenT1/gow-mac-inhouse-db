@@ -5,10 +5,29 @@
     margin-left: 50%;
     position: relative;
     left: -500px;
-    top:50px;
-    padding-bottom:100px;
 
-    border-left: 1px solid #333;
-    border-right: 1px solid #333;
+    padding:35px 5px 100px 5px;
 
+    background: rgba(132, 132, 132, 0.85);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
+
+}
+.tiny_links{
+    color: #949494 !important;
+    float:right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.user_name{
+    padding-left: 30px;
+}
+.DELETE{
+    height:16px;
+    width:16px;
+    float:right;
+}
+.instrument_container{
+    width:80%;
 }
