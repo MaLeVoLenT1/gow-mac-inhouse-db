@@ -15,12 +15,12 @@ class CreateAttachmentsTable extends Migration {
 		Schema::create('attachments', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('instruments_id')->unsigned();
+            $table->integer('instrument_id')->unsigned();
             $table->string('filename');
             $table->string('mime');
             $table->string('original_filename');
 			$table->timestamps();
-            $table->foreign('instrument_id')->references('id')->on('instruments');
+            $table->foreign('instrument_id')->references('id')->on('instrument');
 		});
 
 	}

@@ -31,3 +31,17 @@
 .instrument_container{
     width:80%;
 }
+.blue_info{
+    color: rgba(31, 150, 228, 0.68) !important;
+    padding-left:20px;
+    font-size: larger;
+
+}
+.instrument_id{
+    float:right;
+}
+.num_id{
+    color:red;
+    font-size:50px;
+    padding:0;
+}
