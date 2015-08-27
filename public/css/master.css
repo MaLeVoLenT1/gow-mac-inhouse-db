@@ -23,11 +23,6 @@
 .user_name{
     padding-left: 30px;
 }
-.DELETE{
-    height:16px;
-    width:16px;
-    float:right;
-}
 .instrument_container{
     width:80%;
 }
@@ -45,3 +40,27 @@
     font-size:50px;
     padding:0;
 }
+.Page_title{
+
+
+}
+.New_record{
+    top: 30px;
+
+    padding-right: 10px;
+}
+.delete_button{
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACd0lEQVQ4T22Tz0sbQRTH3+zPbDaJa0SLtYdoTSgeyhwEPfQS8A9Q/AcMePBo/xL9D+J/EBFqBJUBtQfxMpWilxZCW6RaN8mazJrdZnfLTLPbWByYfcPO+3zfm/dmEAzGp/X1Lb/VKvw4Pq6stNvt+P+wrRUK1iTG1b7nNd7V6+/5HuKfzxsb1TzGazdHR9C8vqaMsfJKo/FEZAATa3YW35+dQe/hYWfp6qqCeOTx+fnNm8ND8JtNiIIAure31PW8RCSBZ2awfXoqfPhgjG2ji9XVGkJo2bftvxtBAFEYArNt6vp+mTtOYkys6Wlsn5yI/Xh0ut1dVLMsy5yaIubYGI5h4RSG0HUcas3NwegwHEXi3A+uS91+vyxqwFNM6zox83khwmEUhsLmFxehfX4uInNnFEXQZoy6YSiOKAQSEU0jZi6HY5g7R54HUa8nQO7clWXKBnDShWERQ1VJxjBw0GpB4DggAYAkSSDLMnQUhT4axpMOJRnEWUyUSiSt67hJCMgDkMN87agqZar6vACvw3ipRDKWhe8PDkAGAIWDsvzPKgrYANSRpEQkKeJ4sSjgX/W6gAWoKGKqAxsL/gwC2oyLKCIXi8S0LHy3vw9SFImIHGSaRmVFgQlZxqqqCiE+ufi3Xo/e+X4ZfVxaqhmWtXz74YOA45R7qRR9TKfFRRqJIvJK17GmaaANhBBC8KXT2UVkYWHLpXQzhrlAzzCob5pPrnJeksjrbBandF2I8M58dZxtUYO9bLaqet4ah33TpL8zmWcf0wtdJ29GR7GRSsF3xnZKFxeVpI17udwWkuVCf2Sk8v9LHL4nL9PpqqEojbeXl+I5/wFKtD7oFPdrhwAAAABJRU5ErkJggg==") no-repeat;
+    width:16px;
+    height:16px;
+
+    border: none;
+}.delete_button_forum{
+     float:right;
+ }
+ .left{
+     float:left;
+ }
+ .right{
+     float:right;
+ }

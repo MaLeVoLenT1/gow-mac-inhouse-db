@@ -20,7 +20,7 @@ class CreateAttachmentsTable extends Migration {
             $table->string('mime');
             $table->string('original_filename');
 			$table->timestamps();
-            $table->foreign('instrument_id')->references('id')->on('instrument');
+            $table->foreign('instrument_id')->references('id')->on('instrument')->onDelete('cascade');
 		});
 
 	}

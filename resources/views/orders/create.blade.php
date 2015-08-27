@@ -11,7 +11,7 @@
 @section('body')
     <h1>Create New Order</h1>
     <hr/>
-    {!! Form::open(['url' =>'orders']) !!}
+    {!! Form::open(['url' =>'customers']) !!}
     @include('orders.partials.form', ['submitButtonText' => 'Create Customer Record'])
 
     {!! Form::close() !!}

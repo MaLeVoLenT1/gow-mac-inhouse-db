@@ -31,7 +31,7 @@ class OrdersController extends Controller {
 	public function store(OrderRequest $request)
 	{
         General_info::create( $request->all());
-        return redirect('orders');
+        return redirect('customers');
 	}
 
 //Show Record
@@ -53,7 +53,7 @@ class OrdersController extends Controller {
 	{
         $General = General_info::findorfail($id);
         $General->update($request-> all());
-        return redirect('orders');
+        return redirect('customers');
 	}
 
 //Delete Record
@@ -61,7 +61,7 @@ class OrdersController extends Controller {
 	{
         $General = General_info::find($id);
         $General::destroy($id);
-        return redirect('orders');
+        return redirect('customers');
 
 	}
 

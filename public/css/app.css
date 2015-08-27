@@ -4991,7 +4991,7 @@ a.list-group-item-danger.active:focus {
 }
 .panel-body {
   padding: 15px;
-    color:white;
+    color: rgba(179, 179, 179, 0.84);
 }
 .panel-heading {
   padding: 10px 15px;
@@ -5210,7 +5210,8 @@ a.list-group-item-danger.active:focus {
   /*border-bottom: 1px solid #dddddd;*/
 }
 .panel-default {
-  border-color: #dddddd;
+  /*border-color: #dddddd;*/
+
 }
 .panel-default > .panel-heading {
   color: #f4f4f4;

@@ -15,7 +15,10 @@ class CreateOtherDevicesTable extends Migration {
 		Schema::create('other_devices', function(Blueprint $table)
 		{
 			$table->increments('id');
+            $table->char('name');
+            $table->integer('instrument_id')->unsigned();
 			$table->timestamps();
+            $table->foreign('instrument_id')->references('id')->on('instrument')->onDelete('cascade');
 		});
 	}
 
