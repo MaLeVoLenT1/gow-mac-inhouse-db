@@ -6,7 +6,7 @@
     position: relative;
     left: -500px;
 
-    padding:35px 5px 100px 5px;
+    padding:35px 5px 250px 5px;
 
     background: rgba(132, 132, 132, 0.85);
     -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
@@ -34,11 +34,24 @@
 }
 .instrument_id{
     float:right;
+
+    text-align: center;
+
 }
 .num_id{
     color:red;
     font-size:50px;
+
     padding:0;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgba(160, 160, 160, 0.79);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
+    box-shadow: rgba(0, 0, 0, 0.7) 0 1px 8px, inset rgba(0, 0, 0, 0.4) 0 0 0 1px;
+
 }
 .Page_title{
 
