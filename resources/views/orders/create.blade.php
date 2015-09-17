@@ -12,7 +12,8 @@
     <h1>Create New Order</h1>
     <hr/>
     {!! Form::open(['url' =>'customers']) !!}
-    @include('orders.partials.form', ['submitButtonText' => 'Create Customer Record'])
+    @include('partial_views.customer_form')
+    @include('partial_views.submit_form', ['submitButtonText' => 'Create Customer Record'])
 
     {!! Form::close() !!}
 

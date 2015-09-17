@@ -10,12 +10,10 @@ use App\Base_Gas_Concentration;
 use Illuminate\Http\Request;
 
 class CompleteOrderController extends Controller {
-
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	public function index()
 	{
         $general_information = General_info::all();
@@ -30,7 +28,7 @@ class CompleteOrderController extends Controller {
 	 */
 	public function create()
 	{
-		//
+        return view('customer_orders.create');
 	}
 
 	/**

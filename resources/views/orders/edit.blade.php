@@ -12,7 +12,8 @@
     <h1>Edit: {!! $General -> customer_name !!}</h1>
     <hr/>
     {!! Form::model($General, ['method' => 'PATCH', 'action' =>['OrdersController@update', $General -> id]]) !!}
-        @include('orders.partials.form', ['submitButtonText' => 'Edit Customer Record'])
+        @include('partial_views.customer_form')
+        @include('partial_views.submit_form', ['submitButtonText' => 'Edit Instrument Record'])
     {!! Form::close() !!}
 
     @include('errors.list')

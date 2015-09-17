@@ -12,7 +12,8 @@
     <h1>Create New Instrument</h1>
     <hr/>
     {!! Form::open(['url' =>'instruments']) !!}
-    @include('instruments.partials.form', ['submitButtonText' => 'Create New Instrument'])
+    @include('partial_views.instrument_form')
+    @include('partial_views.instrument_form', ['submitButtonText' => 'Create New Instrument'])
 
     {!! Form::close() !!}
 

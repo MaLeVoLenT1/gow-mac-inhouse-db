@@ -1,6 +1,6 @@
 <div class="form-group">
     {!! Form::label('instrument_type', 'Instrument Type: ') !!}
-    {!! Form::text('instrument_type', null, ['class' => 'form-control']) !!}
+    {!! Form::text('instrument_type', null, ['class' => 'form-control'],['id' => 'instrumenttype_00'] ) !!}
 </div>
 <div class="form-group">
     {!! Form::label('instrument_serial', 'Instrument Serial: ') !!}
@@ -41,7 +41,4 @@
 <div class="form-group">
     {!! Form::label('design_status', 'Design Status: ') !!}
     {!! Form::text('special_features', null, ['class' => 'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::submit($submitButtonText, ['class' => 'btn btn-primary form-control']) !!}
 </div>
