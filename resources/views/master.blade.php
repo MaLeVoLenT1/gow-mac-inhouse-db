@@ -7,13 +7,16 @@
     <link href="{{ asset('/css/master.css') }}" rel="stylesheet" type='text/css'>
 @endsection
 
+
+
 @section('content')
     <div class="body">
         @yield('header')
         @yield('body')
     </div>
+    @yield('scripts')
 @endsection
 
 
 
-@yield('scripts')
+
