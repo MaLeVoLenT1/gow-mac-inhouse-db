@@ -4,9 +4,6 @@ $(function () {
         var num = $('.clonedInput').length, // how many "duplicatable" input fields we currently have
             newNum = new Number(num + 1), // the numeric ID of the new input field being added
             newElem = $('#testingDiv' + num).clone().attr('id', 'testingDiv' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
-        // manipulate the name/id values of the input inside the new element
-
-
 
         // insert the new element after the last "duplicatable" input field
         $('#testingDiv' + num).after(newElem);
