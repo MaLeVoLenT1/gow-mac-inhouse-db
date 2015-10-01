@@ -18,7 +18,7 @@ class CompleteOrderController extends Controller {
 	{
         $general_information = General_info::all();
 
-		//
+		return $general_information;
 	}
 
 	/**

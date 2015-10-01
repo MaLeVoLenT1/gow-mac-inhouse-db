@@ -10,7 +10,7 @@
         <h1>Create New Customer & Order</h1>
         <button id="add-row" onclick="InstrumentCreate()">Add New Instrument</button>
     <hr/>
-    {!! Form::open(['url' =>'customers']) !!}
+    {!! Form::open(['url' =>'customers_orders']) !!}
         @include('partial_views.customer_form', ['submitButtonText' => 'Create Record'])
         <br>
         <br>

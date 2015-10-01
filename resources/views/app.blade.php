@@ -35,9 +35,7 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{url('/customers')}}">Customers</a></li>
-				</ul>
+				
 
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
@@ -59,7 +57,9 @@
 	@yield('content')
 
     <div class="Bottom_Nav">
-        <a href="#">Complete Orders</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#">Customers</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#">Instruments</a>
+        <a href="{{url('/complete_orders/create')}}">Complete Orders Form</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="{{url('/customers')}}">Customers Orders Records</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="#">Instrument Records</a>
     </div>
 </body>
 </html>
