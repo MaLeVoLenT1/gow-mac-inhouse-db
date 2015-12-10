@@ -16,6 +16,8 @@ class CreateOtherDevicesTable extends Migration {
 		{
 			$table->increments('id');
             $table->char('name');
+			//Put description here too
+			//notes
             $table->integer('instrument_id')->unsigned();
 			$table->timestamps();
             $table->foreign('instrument_id')->references('id')->on('instrument')->onDelete('cascade');

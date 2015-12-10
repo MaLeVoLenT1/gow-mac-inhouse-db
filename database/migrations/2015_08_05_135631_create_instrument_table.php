@@ -15,7 +15,7 @@ class CreateInstrumentTable extends Migration {
 		Schema::create('instrument', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->char('instrument_type');
+            $table->char('instrument_name');
             $table->char('instrument_serial');
             $table->char('PN');
             $table->char('series_number');
