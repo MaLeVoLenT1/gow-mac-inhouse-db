@@ -28,7 +28,8 @@ class CompleteOrderController extends Controller {
 	 */
 	public function create()
 	{
-        return view('customer_orders.create');
+        //return view('customer_orders.create');
+		return 'test 2';
 	}
 
 	/**

@@ -30,8 +30,9 @@ class OrdersController extends Controller {
 //Store Record
 	public function store(OrderRequest $request)
 	{
-        General_info::create( $request->all());
-        return redirect('customers');
+        //General_info::create( $request->all());
+       // return redirect('customers');
+		return 'Test This is working';
 	}
 
 //Show Record
