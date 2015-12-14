@@ -43,4 +43,5 @@
     {!! Form::text('design_status[]', null, ['class' => 'form-control']) !!}
 </div>
 
+@include('partial_views.base_gas_form')
 
