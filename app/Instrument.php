@@ -17,7 +17,7 @@ class Instrument extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-        'instrument_type',
+        'instrument_name',
         'instrument_serial',
         'PN',
         'series_number',

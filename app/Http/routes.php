@@ -25,6 +25,7 @@ Route::resource(    'impurities',              'ImpuritiesController');
 Route::resource(    'base_gas',                'BaseGasController');
 Route::resource(    'other_devices',           'OtherDevicesController');
 Route::resource(    'complete_orders',           'CompleteOrderController');
+Route::post(         'completed',              'CompleteOrderController@completed');
 
 
 

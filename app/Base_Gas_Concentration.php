@@ -17,7 +17,9 @@ class Base_Gas_Concentration extends Model {
      * @var array
      */
     protected $fillable = [
-
+        'instrument_id',
+        'name',
+        'concentration',
     ];
 
     /**

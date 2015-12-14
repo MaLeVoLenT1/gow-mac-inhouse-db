@@ -7,7 +7,10 @@ use App\Instrument;
 use App\Impurities;
 use App\Other_Devices;
 use App\Base_Gas_Concentration;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Request;
+
 
 class CompleteOrderController extends Controller {
     public function __construct()
@@ -18,9 +21,57 @@ class CompleteOrderController extends Controller {
 	{
         $general_information = General_info::all();
 
-		return $general_information;
+		return view('orders.orders', compact('general_information'));
 	}
+	public function completed(){
+		$input = Request::all();
+		//Grab Order Information
+		$general = new General_info();
+		$general -> customer_name = $input['customer_name'];
+		$general -> address = $input['address'];
+		$general -> order_number = $input['order_number'];
+		$general -> quote_number = $input['quote_number'];
+		$general -> date_ordered = $input['date_ordered'];
+		$general -> save();
+		//Needs error handler
 
+		$instrument_count = count($input['instrument_name']);
+		$counter = 0;
+		//return $input['instrument_name'][0];
+		while($counter + 1 <= $instrument_count){
+
+			$instrument = new Instrument();
+
+			$instrument -> instrument_name= $input['instrument_name'][$counter];
+			$instrument -> instrument_serial = $input['instrument_serial'][$counter];
+			$instrument -> PN = $input['PN'][$counter];
+			$instrument -> series_number = $input['series_number'][$counter];
+			$instrument -> power = $input['power'][$counter];
+			$instrument -> volts = $input['volts'][$counter];
+			$instrument -> frequency = $input['frequency'][$counter];
+			$instrument -> approvals = $input['approvals'][$counter];
+			$instrument -> flow_system_number = $input['flow_system_number'][$counter];
+			$instrument -> special_features = $input['special_features'][$counter];
+			$instrument -> design_status = $input['design_status'][$counter];
+			//$instrument -> notes = $input['notes'][$counter];
+
+			$instrument -> general_info_id = DB::table('general_info')
+					-> where('customer_name',$input['customer_name'])
+					-> where('address',$input['address'])
+					-> where('order_number',$input['order_number'])
+					-> where('quote_number',$input['quote_number'])
+					-> where('date_ordered',$input['date_ordered'])
+					-> pluck('id');
+			$instrument -> save();
+			$counter++;
+		}
+
+
+
+
+
+		return redirect('complete_orders');
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -28,8 +79,8 @@ class CompleteOrderController extends Controller {
 	 */
 	public function create()
 	{
-        //return view('customer_orders.create');
-		return 'test 2';
+        return view('customer_orders.create');
+
 	}
 
 	/**
