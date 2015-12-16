@@ -17,7 +17,7 @@
         <br>
         <hr>    <h2>Instrument</h2>     <hr/>
 
-        <div id="testingDiv1" class="clonedInput">
+        <div id="instrument1" class="clonedInstrument">
             <h2 id="reference" name="reference" class="heading-reference">Instrument Section 1</h2>
             @include('partial_views.instrument_form')
         </div>
@@ -36,5 +36,5 @@
 
 @section('scripts')
     <script src="{{asset('/javascript/instruments.js')}}"></script>
-    <script src="{{asset('/javascript/basegas.js')}}"></script>
+
 @endsection

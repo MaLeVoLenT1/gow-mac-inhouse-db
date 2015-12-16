@@ -25,6 +25,9 @@ class CompleteOrderController extends Controller {
 	}
 	public function completed(){
 		$input = Request::all();
+		//return dd($input);
+
+
 		//Grab Order Information
 		$general = new General_info();
 		$general -> customer_name = $input['customer_name'];
@@ -33,44 +36,75 @@ class CompleteOrderController extends Controller {
 		$general -> quote_number = $input['quote_number'];
 		$general -> date_ordered = $input['date_ordered'];
 		$general -> save();
-		//Needs error handler
 
-		$instrument_count = count($input['instrument_name']);
-		$counter = 0;
-		//return $input['instrument_name'][0];
-		while($counter + 1 <= $instrument_count){
+		$cycle = 1;
+		While ($cycle > 0){
+			if (isset($input['instrument_name_'.$cycle])) {
+				$number = $cycle;
+				$cycle ++;
+				$instrument = new Instrument();
+				$instrument -> instrument_name = $input['instrument_name_'.$number];
+				$instrument -> instrument_serial = $input['instrument_serial_'.$number];
+				$instrument -> PN = $input['PN_'.$number];
+				$instrument -> series_number = $input['series_number_'.$number];;
+				$instrument -> power = $input['power_'.$number];
+				$instrument -> volts = $input['volts_'.$number];
+				$instrument -> frequency = $input['frequency_'.$number];
+				$instrument -> approvals = $input['approvals_'.$number];
+				$instrument -> flow_system_number = $input['flow_system_number_'.$number];
+				$instrument -> special_features = $input['special_features_'.$number];
+				$instrument -> design_status = $input['design_status_'.$number];
 
-			$instrument = new Instrument();
 
-			$instrument -> instrument_name= $input['instrument_name'][$counter];
-			$instrument -> instrument_serial = $input['instrument_serial'][$counter];
-			$instrument -> PN = $input['PN'][$counter];
-			$instrument -> series_number = $input['series_number'][$counter];
-			$instrument -> power = $input['power'][$counter];
-			$instrument -> volts = $input['volts'][$counter];
-			$instrument -> frequency = $input['frequency'][$counter];
-			$instrument -> approvals = $input['approvals'][$counter];
-			$instrument -> flow_system_number = $input['flow_system_number'][$counter];
-			$instrument -> special_features = $input['special_features'][$counter];
-			$instrument -> design_status = $input['design_status'][$counter];
-			//$instrument -> notes = $input['notes'][$counter];
+				$instrument -> general_info_id = DB::table('general_info')
+						-> where('customer_name',$input['customer_name'])
+						-> where('address',$input['address'])
+						-> where('order_number',$input['order_number'])
+						-> where('quote_number',$input['quote_number'])
+						-> where('date_ordered',$input['date_ordered'])
+						-> pluck('id');
+				$instrument -> save();
 
-			$instrument -> general_info_id = DB::table('general_info')
-					-> where('customer_name',$input['customer_name'])
-					-> where('address',$input['address'])
-					-> where('order_number',$input['order_number'])
-					-> where('quote_number',$input['quote_number'])
-					-> where('date_ordered',$input['date_ordered'])
-					-> pluck('id');
-			$instrument -> save();
-			$counter++;
+				//Grabs Base Gas
+				if (isset($input['name_'.$number])) {
+					$gas_count = 0;
+
+					While ($gas_count >= 0){
+
+						if (isset($input['name_'.$number][$gas_count])){
+							$BaseGas = new Base_Gas_Concentration();
+
+							$BaseGas -> name = $input['name_'.$number][$gas_count];
+							$BaseGas -> concentration = $input['concentration_'.$number][$gas_count];
+
+							$BaseGas -> instrument_id = DB::table('instrument')
+									-> where('instrument_name',$input['instrument_name_'.$number])
+									-> where('instrument_serial',$input['instrument_serial_'.$number])
+									-> where('PN',$input['PN_'.$number])
+									-> where('series_number',$input['series_number_'.$number])
+									-> where('power',$input['power_'.$number])
+									-> where('volts',$input['volts_'.$number])
+									-> where('frequency',$input['frequency_'.$number])
+									-> where('approvals',$input['approvals_'.$number])
+									-> where('flow_system_number',$input['flow_system_number_'.$number])
+									-> where('special_features',$input['special_features_'.$number])
+									-> where('design_status',$input['design_status_'.$number])
+									-> pluck('id');
+							$BaseGas -> save();
+							$gas_count ++ ;
+
+						}else{
+							$gas_count = -1;
+						}
+					}
+				}
+			}else{
+				$cycle = -1;
+			}
 		}
 
-
-
-
-
-		return redirect('complete_orders');
+		$General = General_info::all();
+		return view('orders.orders', compact('General'));
 	}
 	/**
 	 * Show the form for creating a new resource.
