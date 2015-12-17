@@ -20,14 +20,10 @@ class CompleteOrderController extends Controller {
 	public function index()
 	{
         $general_information = General_info::all();
-
 		return view('orders.orders', compact('general_information'));
 	}
 	public function completed(){
 		$input = Request::all();
-		//return dd($input);
-
-
 		//Grab Order Information
 		$general = new General_info();
 		$general -> customer_name = $input['customer_name'];
@@ -54,8 +50,7 @@ class CompleteOrderController extends Controller {
 				$instrument -> flow_system_number = $input['flow_system_number_'.$number];
 				$instrument -> special_features = $input['special_features_'.$number];
 				$instrument -> design_status = $input['design_status_'.$number];
-
-
+				// Assigns Customer ID to Instrument.
 				$instrument -> general_info_id = DB::table('general_info')
 						-> where('customer_name',$input['customer_name'])
 						-> where('address',$input['address'])

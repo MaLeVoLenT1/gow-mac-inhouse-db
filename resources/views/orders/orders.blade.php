@@ -12,6 +12,7 @@
 <h1 class="Page_title">General Information</h1>
 <a class="New_record" href="{{url('customers/create')}}">Create New Record</a>
 <?php  $increment = $sec_increment = $BGC_increment = $IMP_increment = 0; ?>
+@if(isset($General))
     @foreach($General as $General_info)
         <?php  $increment ++;  ?>
         <div class="panel-group">
@@ -188,6 +189,7 @@
             </div>
         </div>
     @endforeach
+@endif
 @endsection
 
 

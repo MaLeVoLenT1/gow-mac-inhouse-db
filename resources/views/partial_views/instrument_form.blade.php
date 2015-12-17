@@ -43,5 +43,32 @@
     {!! Form::text('design_status_1', null, ['class' => 'form-control']) !!}
 </div>
 
-@include('partial_views.base_gas_form')
+<hr>
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" href="#collapseBase_1">Base gas & Concentration</a>
+            </h4>
+        </div>
+        <div id="collapseBase_1" class="panel-collapse collapse">
+            <div class="panel-body">@include('partial_views.base_gas_form')</div>
+        </div>
+    </div>
+</div>
+
+<hr>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapseImpurities_1">Impurities</a>
+                </h4>
+            </div>
+            <div id="collapseImpurities_1" class="panel-collapse collapse">
+                <div class="panel-body">@include('partial_views.impurities_form')</div>
+            </div>
+        </div>
+    </div>
+<hr/>
 

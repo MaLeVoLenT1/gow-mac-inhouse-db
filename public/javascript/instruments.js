@@ -24,6 +24,15 @@ $(function () {
             newElem = $('#instrument' + num).clone().attr('id', 'instrument' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
 
             newElem.html(
+                '<div class="panel-group">' +
+                '<div class="panel panel-default">' +
+                '<div class="panel-heading">' +
+                '<h4 class="panel-title">' +
+                '<a data-toggle="collapse" href="#collapseInstru_' + newNum +'">Collapsible panel</a>' +
+                '</h4>' +
+                '</div>' +
+                '<div id="collapseInstru_' + newNum +'" class="panel-collapse collapse">' +
+                '<div class="panel-body">'+
 
                 '<h2 id="reference" name="reference" class="heading-reference">Instrument Section ' + newNum + '</h2> ' +
                 '<div class="form-group">' +
@@ -84,7 +93,11 @@ $(function () {
                 '<div id="add-del-buttonsz"> ' +
                     '<input type="button" id="btnAddz_' + newNum + '" value="[ + ] add to this form"  onclick="Gas(' + newNum + ')"> ' +
                     '<input type="button" id="btnDelz" value="[ - ] remove the section above" disabled="disabled"> ' +
-                '</div> ');
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
         // insert the new element after the last "duplicatable" input field
         $('#instrument' + num).after(newElem);
 
