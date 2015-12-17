@@ -26,6 +26,15 @@
 .instrument_container{
     width:80%;
 }
+.Base_Impurity{
+    width:49%;
+}
+#right{
+    float: right;
+}
+#left{
+    float: left;
+}
 .blue_info{
     color: rgba(31, 150, 228, 0.68) !important;
     padding-left:20px;
