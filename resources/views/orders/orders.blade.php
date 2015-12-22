@@ -11,7 +11,9 @@
 @section('body')
 <h1 class="Page_title">General Information</h1>
 <a class="New_record" href="{{url('customers/create')}}">Create New Record</a>
-<?php  $increment = $sec_increment = $BGC_increment = $IMP_increment = 0; ?>
+<?php
+    $increment = $sec_increment = $BGC_increment = $IMP_increment = 0;
+?>
 @if(isset($General))
     @foreach($General as $General_info)
         <?php  $increment ++;  ?>
@@ -28,31 +30,15 @@
                 </div>
                 <div id="collapseCustomer{{$increment}}" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <!--General_Information ID -->
-                        <div class="instrument_id">
-                           <span class="num_id">{{$General_info->id}}</span>
-                        </div>
-                        <!--General_Information Order Number -->
-                        <span class="blue_info">Order Number:</span> {{$General_info->order_number}}
-                        <!--General_Information Quote Number -->
-                        &nbsp;<span class="blue_info">Quote Number:</span> {{$General_info->quote_number}}<br>
-                        <!--General_Information Address -->
-                        <span class="blue_info">Address:</span> {{$General_info->address}}<br>
-                        <!--General_Information Date Ordered -->
-                        <span class="blue_info">Date Ordered:</span> {{$General_info->date_ordered}}<br>
-
-                        <!-- Instrument Information -->
+                        @include('orders.parts.general')
                         <hr>
                             <!--Create New Instrument -->
                             Instrument Orders  <a class="New_record" href="{{url('instruments/create')}}">~New Instrument</a>
-
                             @foreach($General_info ->instruments as $instrument)
-
                                 <?php  $sec_increment ++;  ?>
                                 <div class="instrument_container">
                                     <div class="panel-group">
                                         <div class="panel panel-default">
-                                            <!-- Instrument Panel Name -->
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
                                                     <a data-toggle="collapse" href="#sec_collapse{{$sec_increment}}">Serial #{{$instrument->instrument_serial}}<br></a>
@@ -60,118 +46,11 @@
                                             </div>
 
                                             <div id="sec_collapse{{$sec_increment}}" class="panel-collapse collapse">
-                                                <!-- Panel Body Start -->
                                                 <div class="panel-body">
+                                                    @include('orders.parts.instrument')
 
-                                                    <!-- Instrument ID -->
-                                                    <div class="instrument_id">
-                                                        <span class="num_id">{{$instrument->id}}</span>
-                                                    </div>
-                                                    <!-- Instrument Serial -->
-                                                    <span class="blue_info">Serial:</span> {{$instrument->instrument_serial}}
-                                                    &nbsp;
-                                                    <!-- Instrument PN -->
-                                                    <span class="blue_info">P/N:</span> {{$instrument->PN}}
-                                                    <br>
-
-                                                    <!-- Instrument Type-->
-                                                    Type: {{$instrument->instrument_type}} &nbsp;
-                                                    <!-- Series Number -->
-                                                    Series Number: {{$instrument->series_number}}
-                                                    <br>
-                                                    <!-- Approvals -->
-                                                    Approvals: {{$instrument->approvals}}
-                                                    <br>
-                                                    <!-- Flow System Number -->
-                                                    Flow System Number: {{$instrument->flow_system_number}}
-                                                    <br>
-                                                    <!-- Special Features -->
-                                                    Special Features: {{$instrument->special_features}}
-                                                    <br>
-                                                    <!-- Design Status -->
-                                                    Design Status: {{$instrument->design_status}}
-                                                    <br>
-                                                    <!-- Notes-->
-                                                    Notes: {{$instrument->notes}}
-                                                    <br>
-
-
-                                                    <table class="table table-hover table-striped">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td><span class="blue_info">Power</span></td>
-                                                            <td>{{$instrument->power}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="blue_info">Volts</span></td>
-                                                            <td>{{$instrument->volts}}</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><span class="blue_info">Frequency</span></td>
-                                                            <td>{{$instrument->frequency}}</td>
-
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-
-
-
-                                                    <div class="panel-group">
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-heading">
-                                                                <h4 class="panel-title">
-                                                                    <a data-toggle="collapse" href="#collapseBGC{{$BGC_increment}}">Base Gas & Concentration</a>
-                                                                </h4>
-                                                            </div>
-                                                            <div id="collapseBGC{{$BGC_increment}}" class="panel-collapse collapse">
-                                                                <div class="panel-body">
-                                                                    <table class="table table-hover table-striped">
-
-                                                                        <thead><tr>     <th>Base Gas</th>   <th>Concentration</th>      </tr></thead>
-
-                                                                        <tbody>
-                                                                            @foreach($instrument -> base_gas_concentration as $base_gas)
-                                                                                <?php $BGC_increment++; ?>
-                                                                                <tr>
-                                                                                    <td>{{$base_gas -> name}}</td>
-                                                                                    <td>{{$base_gas -> concentration}}</td>
-                                                                                </tr>
-                                                                            @endforeach
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="panel-group">
-                                                        <div class="panel panel-default">
-                                                            <div class="panel-heading">
-                                                                <h4 class="panel-title">
-                                                                    <a data-toggle="collapse" href="#collapseIMP{{$IMP_increment}}">Impurities</a>
-                                                                </h4>
-                                                            </div>
-                                                            <div id="collapseIMP{{$IMP_increment}}" class="panel-collapse collapse">
-                                                                <div class="panel-body">
-                                                                    <table class="table table-hover table-striped">
-
-                                                                        <thead><tr>     <th>Impurity</th>   <th>Percentage</th>      </tr></thead>
-
-                                                                        <tbody>
-                                                                        @foreach($instrument -> impurities as $impurity)
-                                                                            <?php $IMP_increment++; ?>
-                                                                            <tr>
-                                                                                <td>{{$impurity -> name}}</td>
-                                                                                <td>{{$impurity -> percentage}}</td>
-                                                                            </tr>
-                                                                        @endforeach
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    @include('orders.parts.basegas')
+                                                    @include('orders.parts.impurities')
 
                                                      <span class="left">Created At: {{$instrument->created_at}}</span><span class="right">  Updated At: {{$instrument->updated_at}}</span>
                                                 </div>
@@ -182,7 +61,6 @@
                             @endforeach
                         <hr/>
                         <span class="left">Created At: {{$General_info->created_at}}</span><span class="right">  Updated At: {{$General_info->updated_at}}</span>
-
                     </div>
 
                 </div>

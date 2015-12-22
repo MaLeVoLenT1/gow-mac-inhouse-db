@@ -17,6 +17,9 @@ class Impurities extends Model {
      * @var array
      */
     protected $fillable = [
+        'name',
+        'percentage',
+        'instrument_id'
 
     ];
 

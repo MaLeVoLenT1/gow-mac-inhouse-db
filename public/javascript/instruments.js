@@ -17,6 +17,28 @@ function Gas(instrument){
 }
 
 
+function Impurity(instrument){
+
+
+    var newElem = $('#impurity' + instrument).clone().attr('id', 'impurity' + instrument).fadeIn('slow');
+
+    newElem.html(
+        '<div class="form-group"> ' +
+        '<label for="impurity_name_' + instrument +'">Name: </label> ' +
+        '<input class="form-control" name="impurity_name_' + instrument +'[]" type="text"> ' +
+        '</div> ' +
+        '<div class="form-group"> ' +
+        '<label for="impurity_percent_' + instrument +'">Percentage: </label> ' +
+        '<input class="form-control" name="impurity_percent_' + instrument +'[]" type="text"> ' +
+        '</div> '
+    );
+    $('#impurity' + instrument).after(newElem);
+}
+
+
+
+
+
 $(function () {
     $('#btnAdd').click(function () {
         var num = $('.clonedInstrument').length,

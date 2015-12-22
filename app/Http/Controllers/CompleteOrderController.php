@@ -93,6 +93,39 @@ class CompleteOrderController extends Controller {
 						}
 					}
 				}
+
+				//Grabs Impurities
+				if (isset($input['impurity_name_'.$number])){
+					$impurity_count = 0;
+					while ($impurity_count >= 0){
+						if (isset($input['impurity_name_'.$number][$impurity_count])){
+							$Impurity = new Impurities();
+
+							$Impurity -> name = $input['impurity_name_'.$number][$impurity_count];
+							$Impurity -> percentage = $input['impurity_percent_'.$number][$impurity_count];
+
+							$Impurity -> instrument_id = DB::table('instrument')
+									-> where('instrument_name',$input['instrument_name_'.$number])
+									-> where('instrument_serial',$input['instrument_serial_'.$number])
+									-> where('PN',$input['PN_'.$number])
+									-> where('series_number',$input['series_number_'.$number])
+									-> where('power',$input['power_'.$number])
+									-> where('volts',$input['volts_'.$number])
+									-> where('frequency',$input['frequency_'.$number])
+									-> where('approvals',$input['approvals_'.$number])
+									-> where('flow_system_number',$input['flow_system_number_'.$number])
+									-> where('special_features',$input['special_features_'.$number])
+									-> where('design_status',$input['design_status_'.$number])
+									-> pluck('id');
+							$Impurity -> save();
+							$impurity_count ++ ;
+						}else{
+							$impurity_count = -1;
+						}
+					}
+				}
+
+
 			}else{
 				$cycle = -1;
 			}
