@@ -2,10 +2,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapseIMP{{$IMP_increment}}">Impurities</a>
+                <a data-toggle="collapse" href="#collapse{{$sec_increment}}IMP{{$IMP_increment}}">Impurities</a>
             </h4>
         </div>
-        <div id="collapseIMP{{$IMP_increment}}" class="panel-collapse collapse">
+        <div id="collapse{{$sec_increment}}IMP{{$IMP_increment}}" class="panel-collapse collapse">
             <div class="panel-body">
                 <table class="table table-hover table-striped">
 

@@ -51,6 +51,7 @@
 
                                                     @include('orders.parts.basegas')
                                                     @include('orders.parts.impurities')
+                                                    @include('orders.parts.uploads')
 
                                                      <span class="left">Created At: {{$instrument->created_at}}</span><span class="right">  Updated At: {{$instrument->updated_at}}</span>
                                                 </div>
