@@ -10,6 +10,9 @@ use App\Base_Gas_Concentration;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Request;
+use App\Attachments;
+
+Use Illuminate\Support\Facades\Input;
 
 
 class CompleteOrderController extends Controller {
@@ -25,7 +28,7 @@ class CompleteOrderController extends Controller {
 	public function completed(){
 		$input = Request::all();
 		/*Test*/
-		return dd($input);
+		//return dd($input);
 		//Grab Order Information
 		$general = new General_info();
 		$general -> customer_name = $input['customer_name'];
@@ -128,9 +131,14 @@ class CompleteOrderController extends Controller {
 				}
 
 				//Grabs Attachments
-				if(isset($input['image_'.$number])){
-
+				foreach (Input::file('image_'.$number) as $attachment){
+					if(isset($attachment)){
+						$destinationPath = 'uploads'; // upload path
+						$fileName = $attachment -> getClientOriginalName();
+						$attachment->move($destinationPath, $fileName); // uploading file to given path
+					}
 				}
+
 
 
 
