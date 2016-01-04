@@ -9,34 +9,32 @@
 
 
 @section('body')
-    <h1>Attachments</h1>
-    <a href="{{url('attachments/add')}}">Add New Attachment</a>
-    {!! Form::open(
-    array(
-    'URL' => 'instruments/attachments',
-    'class' => 'form',
-    'novalidate' => 'novalidate',
-    'files' => true)) !!}
+    <div class="about-section">
+        <div class="text-content">
+            <div class="span7 offset1">
+                @if(Session::has('success'))
+                    <div class="alert-box success">
+                        <h2>{!! Session::get('success') !!}</h2>
+                    </div>
+                @endif
+                <div class="secure">Upload form</div>
+                {!! Form::open(array('url'=>'attachments/upload','method'=>'POST', 'files'=>true)) !!}
+                <div class="control-group">
+                    <div class="controls">
+                        {!! Form::file('image') !!}
+                        <p class="errors">{!!$errors->first('image')!!}</p>
+                        @if(Session::has('error'))
+                            <p class="errors">{!! Session::get('error') !!}</p>
+                        @endif
+                    </div>
+                </div>
+                <div id="success"> </div>
+                {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 
-    <div class="form-group">
-        {!! Form::label('File Name') !!}
-        {!! Form::text('name', null, array('placeholder'=>'placeholder')) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('file') !!}
-        {!! Form::file('image', null) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::submit('Upload!') !!}
-    </div>
-    {!! Form::close() !!}
-    <h1>List</h1>
-    <div class="row">
-        <ul>
-
-        </ul>
-    </div>
 
 @endsection
 

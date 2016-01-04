@@ -16,10 +16,11 @@ Route::get('home', 'HomeController@index');
 Route::resource('customers', 'OrdersController');
 
 Route::resource(    'instruments',                          'InstrumentsController');
-Route::get(         'attachments',              'AttachmentsController@index');
+Route::resource(    'attachments',              'AttachmentsController');
+Route::post('attachments/upload', 'AttachmentsController@upload');
 
-Route::get(         'attachments/add',          ['as'=>'addentry', 'uses'=>'AttachmentsController@add']);
-Route::get(         'attachments/{filename}',   ['as'=>'getentry', 'uses'=>'AttachmentsController@get']);
+
+
 
 Route::resource(    'impurities',              'ImpuritiesController');
 Route::resource(    'base_gas',                'BaseGasController');

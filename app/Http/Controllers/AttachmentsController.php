@@ -3,10 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Attachments;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-use Illuminate\Http\Response;
-use Illuminate\Http\Request;
+
+Use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 
 class AttachmentsController extends Controller {
@@ -28,22 +27,11 @@ class AttachmentsController extends Controller {
 //Add
 	public function add()
 	{
-		$file = Request::file('filefield');
-        $extension = $file ->getClientOriginalExtension();
-        Storage::disk('local') -> put($file->getFilename().'.'.$extension, File::get($file));
-        $entry = new Attachments();
-        $entry -> mime = $file->getClientMimeType();
-        $entry ->original_filename = $file ->getClientOriginalName();
-        $entry ->filename = $file->getFilename().'.'.$extension;
-        $entry->save();
-        return redirect('attachments.attachments');
+
 	}
 //Get
     public function get($filename){
-        $entry = Attachments::where('filename', '=', $filename) -> FirstOrFail();
-        $file =Storage::disk('local')->get($entry->filename);
-        return (new Response($file, 200))
-            ->header('Content-Type', $entry->mime);
+
     }
 //Store
 	public function store()
@@ -74,5 +62,25 @@ class AttachmentsController extends Controller {
 	{
 		//
 	}
+
+	public function upload() {
+
+			// checking file is valid.
+			if (Input::file('image')->isValid()) {
+				$destinationPath = 'uploads'; // upload path
+				$extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
+				$fileName = rand(11111,99999).'.'.$extension; // renameing image
+				Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+				// sending back with message
+
+				return 'works';
+			}
+			else {
+				// sending back with error message.
+
+				return 'does not';
+			}
+		}
+
 
 }
