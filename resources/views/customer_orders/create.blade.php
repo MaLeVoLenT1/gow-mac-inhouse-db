@@ -19,8 +19,8 @@
                 </div>
                 <div id="collapse1" class="panel-collapse">
                     <div class="panel-body">
+                        {!! Form::open(array('url'=>'completed','method'=>'POST', 'files'=> true)) !!}
 
-                        {!! Form::open(['url' =>'completed']) !!}
                         @include('partial_views.customer_form', ['submitButtonText' => 'Create Record'])
                         <br>
                         <br>

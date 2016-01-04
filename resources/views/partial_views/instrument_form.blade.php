@@ -44,6 +44,22 @@
 </div>
 
 
+<div class="attachments">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#attachments_1">Attachments</a>
+                </h4>
+            </div>
+            <div id="attachments_1" class="panel-collapse collapse">
+                <div class="panel-body">@include('partial_views.attachments')</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="Base_Impurity" id="left">
     <div class="panel-group">
         <div class="panel panel-default">
@@ -76,17 +92,3 @@
 </div>
 <br>
 
-<div class="attachments">
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#attachments_1">Impurities</a>
-                </h4>
-            </div>
-            <div id="attachments_1" class="panel-collapse collapse">
-                <div class="panel-body">@include('partial_views.attachments')</div>
-            </div>
-        </div>
-    </div>
-</div>

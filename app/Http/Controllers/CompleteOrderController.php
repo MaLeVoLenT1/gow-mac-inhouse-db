@@ -24,6 +24,8 @@ class CompleteOrderController extends Controller {
 	}
 	public function completed(){
 		$input = Request::all();
+		/*Test*/
+		return dd($input);
 		//Grab Order Information
 		$general = new General_info();
 		$general -> customer_name = $input['customer_name'];
@@ -124,6 +126,12 @@ class CompleteOrderController extends Controller {
 						}
 					}
 				}
+
+				//Grabs Attachments
+				if(isset($input['image_'.$number])){
+
+				}
+
 
 
 			}else{
