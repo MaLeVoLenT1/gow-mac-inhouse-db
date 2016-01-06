@@ -135,7 +135,25 @@ class CompleteOrderController extends Controller {
 					if(isset($attachment)){
 						$destinationPath = 'uploads'; // upload path
 						$fileName = $attachment -> getClientOriginalName();
-						$attachment->move($destinationPath, $fileName); // uploading file to given path
+						$attachment -> move($destinationPath, $fileName); // uploading file to given path
+
+						$upload = new Attachments();
+						$upload -> original_filename = $fileName;
+						$upload -> instrument_id =  DB::table('instrument')
+								-> where('instrument_name',$input['instrument_name_'.$number])
+								-> where('instrument_serial',$input['instrument_serial_'.$number])
+								-> where('PN',$input['PN_'.$number])
+								-> where('series_number',$input['series_number_'.$number])
+								-> where('power',$input['power_'.$number])
+								-> where('volts',$input['volts_'.$number])
+								-> where('frequency',$input['frequency_'.$number])
+								-> where('approvals',$input['approvals_'.$number])
+								-> where('flow_system_number',$input['flow_system_number_'.$number])
+								-> where('special_features',$input['special_features_'.$number])
+								-> where('design_status',$input['design_status_'.$number])
+								-> pluck('id');
+
+						$upload -> save();
 					}
 				}
 

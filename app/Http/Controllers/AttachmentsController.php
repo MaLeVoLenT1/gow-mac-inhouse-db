@@ -24,45 +24,6 @@ class AttachmentsController extends Controller {
 
 	}
 
-//Add
-	public function add()
-	{
-
-	}
-//Get
-    public function get($filename){
-
-    }
-//Store
-	public function store()
-	{
-		//
-	}
-
-//Show
-	public function show($id)
-	{
-		//
-	}
-
-//Edit
-	public function edit($id)
-	{
-		//
-	}
-
-//Update
-	public function update($id)
-	{
-		//
-	}
-
-//Destroy
-	public function destroy($id)
-	{
-		//
-	}
-
 	public function upload() {
 
 			// checking file is valid.

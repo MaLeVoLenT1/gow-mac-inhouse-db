@@ -8,8 +8,6 @@
 @section('body')
 
         <h1>Create New Customer & Order</h1>
-
-
         <div class="panel-group">
             <div class="panel panel-default">
                 <div class="panel-heading">

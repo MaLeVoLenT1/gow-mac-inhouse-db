@@ -17,7 +17,7 @@ Route::resource('customers', 'OrdersController');
 
 Route::resource(    'instruments',                          'InstrumentsController');
 Route::resource(    'attachments',              'AttachmentsController');
-Route::post('attachments/upload', 'AttachmentsController@upload');
+//Route::post('attachments/upload', 'AttachmentsController@upload');
 
 
 
