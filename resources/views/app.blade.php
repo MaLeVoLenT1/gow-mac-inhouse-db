@@ -59,7 +59,7 @@
     <div class="Bottom_Nav">
         <a href="{{url('/complete_orders/create')}}">Create</a> &nbsp;&nbsp;|&nbsp;&nbsp;
         <a href="{{url('/customers')}}">Records</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">Search</a>
+        <a href="{{url('/search')}}">Search</a>
     </div>
 </body>
 </html>

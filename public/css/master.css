@@ -86,3 +86,7 @@
  .right{
      float:right;
  }
+/* Form Stuff*/
+#userSearch, #userCustomer,#userInstrument,#userAttachment,#userBaseGas,#userImpurities{
+    display: none;
+}

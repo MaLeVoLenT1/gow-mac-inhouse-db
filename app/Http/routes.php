@@ -28,7 +28,7 @@ Route::resource(    'other_devices',           'OtherDevicesController');
 Route::resource(    'complete_orders',           'CompleteOrderController');
 Route::post(         'completed',              'CompleteOrderController@completed');
 
-
+Route::resource(    'search',              'SearchController');
 
 
 Route::get('users/index', 'UsersController@index');
