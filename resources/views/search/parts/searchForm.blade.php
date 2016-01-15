@@ -6,9 +6,9 @@
     <div id="userAttachment">{!! Form::label('with', 'With a') !!}{!! Form::select('Attachment',$Field_items['items']['Attachments'],['class' => 'search_form']) !!}</div>
     <div id="userBaseGas">{!! Form::label('with', 'With a') !!}{!! Form::select('BaseGas',$Field_items['items']['BaseGas'],['class' => 'search_form']) !!}</div>
     <div id="userImpurities">{!! Form::label('with', 'With a') !!}{!! Form::select('Impurities',$Field_items['items']['Impurities'],['class' => 'search_form']) !!}</div>
-    <div id="add-del-buttonsz">
-        <input type="button" id="btnAdda" value="And" onclick="Attachments(1)">
-    </div>
+
+    <input type="button" id="add" value="And" onclick="Attachments(1)">
+
     {!! Form::label('of', 'of') !!}{!! Form::text('Of', null, ['class' => 'search_form_table']) !!}
 
 {!! Form::close() !!}
