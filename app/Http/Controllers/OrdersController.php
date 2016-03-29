@@ -59,7 +59,7 @@ class OrdersController extends Controller {
 	public function update($id, OrderRequest $request)
 	{
 		$User_Input= Input::all();
-		return $User_Input;
+		
         $General = General_info::findorfail($id);
         $General->update($request-> all());
 		$instruments = Instrument::where('general_info_id', '=', $id)->get();
