@@ -104,6 +104,8 @@
                             </div>
 
 
+
+
                             <span class="left">Created At: {{$instrument->created_at}}</span><span class="right">  Updated At: {{$instrument->updated_at}}</span>
                         </div>
                     </div>

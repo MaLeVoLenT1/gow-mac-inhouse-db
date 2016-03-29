@@ -59,11 +59,9 @@ class OrdersController extends Controller {
 	public function update($id, OrderRequest $request)
 	{
 		$User_Input= Input::all();
-
         $General = General_info::findorfail($id);
         $General->update($request-> all());
 		$instruments = Instrument::where('general_info_id', '=', $id)->get();
-
 		$cycle = 0;
 		While ($cycle >= 0){
 			if( isset( $User_Input['instrument_name_'.$cycle] ) ){
@@ -110,17 +108,15 @@ class OrdersController extends Controller {
 							}else{
 								$y = -100;
 							}
-
 						}
 						$cycle ++;
 					}
-
 				}
 			}else{$cycle = -1;}
 		}
 
 		return redirect('customers');
-		
+
 	}
 
 //Delete Record
