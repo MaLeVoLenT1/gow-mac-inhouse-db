@@ -15,20 +15,20 @@ Route::get('home', 'HomeController@index');
 
 Route::resource('customers', 'OrdersController');
 
-Route::resource(    'instruments',                          'InstrumentsController');
-Route::resource(    'attachments',              'AttachmentsController');
-//Route::post('attachments/upload', 'AttachmentsController@upload');
+Route::resource('instruments',                          'InstrumentsController');
+Route::resource('attachments',              'AttachmentsController');
 
 
 
 
-Route::resource(    'impurities',              'ImpuritiesController');
-Route::resource(    'base_gas',                'BaseGasController');
-Route::resource(    'other_devices',           'OtherDevicesController');
-Route::resource(    'complete_orders',           'CompleteOrderController');
-Route::post(         'completed',              'CompleteOrderController@completed');
 
-Route::resource(    'search',              'SearchController');
+Route::resource('impurities',              'ImpuritiesController');
+Route::resource('base_gas',                'BaseGasController');
+Route::resource('other_devices',           'OtherDevicesController');
+Route::resource('complete_orders',           'CompleteOrderController');
+Route::post('completed',              'CompleteOrderController@completed');
+
+Route::resource('search',              'SearchController');
 
 
 Route::get('users/index', 'UsersController@index');

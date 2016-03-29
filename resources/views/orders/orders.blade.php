@@ -41,7 +41,7 @@
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
-                                                    <a data-toggle="collapse" href="#sec_collapse{{$sec_increment}}">Serial #{{$instrument->instrument_serial}}<br></a>
+                                                    <a data-toggle="collapse" href="#sec_collapse{{$sec_increment}}">{{$instrument->instrument_name}}<br></a>
                                                 </h4>
                                             </div>
 

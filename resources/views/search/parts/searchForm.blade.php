@@ -1,4 +1,5 @@
 {!! Form::open(array('url'=>'search','method'=>'POST')) !!}
+
     {!! Form::label('search', 'Search') !!}{!! Form::select('Search',$Field_items['fields'],['class' => 'search_form'],['id' => 'Search']) !!}
     <div id="userSearch">{!! Form::label('with', 'With a') !!}{!! Form::select('User',$Field_items['items']['Users'],['class' => 'search_form']) !!}</div>
     <div id="userCustomer">{!! Form::label('with', 'With a') !!}{!! Form::select('Customer',$Field_items['items']['Customers'],['class' => 'search_form']) !!}</div>
