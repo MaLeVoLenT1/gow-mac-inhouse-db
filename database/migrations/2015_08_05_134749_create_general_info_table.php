@@ -16,7 +16,7 @@ class CreateGeneralInfoTable extends Migration {
 		{
 			$table->increments('id');
             $table->char('customer_name', 50);
-            $table->char('address', 50);
+            $table->char('address', 500);
             $table->char('order_number',40);
             $table->char('quote_number', 40);
             $table->date('date_ordered');

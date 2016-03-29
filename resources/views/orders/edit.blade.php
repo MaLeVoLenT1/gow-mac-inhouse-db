@@ -72,6 +72,37 @@
                                 {!! Form::label('design_status', 'Design Status: ') !!}
                                 {!! Form::text('design_status_'.$increment, $instrument->design_status, ['class' => 'form-control']) !!}
                             </div>
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#collapseImP">Impurities</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseImP" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            @foreach($instrument ->impurities as $impurity)
+                                                {!! Form::hidden('impurity_id[]', $impurity['id'], ['class' => 'form-control']) !!}
+                                                <div id="impurity1" class="ClonedImpurity">
+                                                    <div class="form-group">
+                                                        {!! Form::label('name', 'Name: ') !!}
+                                                        {!! Form::text('impurity_name[]', $impurity['name'], ['class' => 'form-control']) !!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        {!! Form::label('percent', 'Percentage: ') !!}
+                                                        {!! Form::text('impurity_percent[]', $impurity['percentage'], ['class' => 'form-control']) !!}
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                                <div id="add-del-buttonsz">
+                                                    <input type="button" id="btnAddImpurity" value="[ + ]" onclick="Impurity(1)">
+                                                    <input type="button" id="btnDelImpurity" value="[ - ]">
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <span class="left">Created At: {{$instrument->created_at}}</span><span class="right">  Updated At: {{$instrument->updated_at}}</span>
                         </div>
@@ -92,5 +123,5 @@
 
 
 @section('scripts')
-
+    <script src="{{asset('/javascript/instruments.js')}}"></script>
 @endsection

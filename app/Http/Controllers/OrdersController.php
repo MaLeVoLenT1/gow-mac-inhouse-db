@@ -2,6 +2,7 @@
 use App\General_info;
 use App\Http\Requests;
 use App\Http\Requests\OrderRequest;
+use App\Impurities;
 use App\Instrument;
 use Illuminate\Support\Facades\Input;
 use Request;
@@ -58,7 +59,7 @@ class OrdersController extends Controller {
 	public function update($id, OrderRequest $request)
 	{
 		$User_Input= Input::all();
-
+		return $User_Input;
         $General = General_info::findorfail($id);
         $General->update($request-> all());
 		$instruments = Instrument::where('general_info_id', '=', $id)->get();
@@ -79,9 +80,9 @@ class OrdersController extends Controller {
 						$instrument['flow_system_number'] = $User_Input['flow_system_number_'.$cycle];
 						$instrument['special_features'] = $User_Input['special_features_'.$cycle];
 						$instrument['design_status'] = $User_Input['design_status_'.$cycle];
-
-
 						$instrument -> save();
+
+
 						$cycle ++;
 
 					}

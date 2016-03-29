@@ -36,6 +36,7 @@
                             Instrument Orders  <a class="New_record" href="{{url('instruments/create')}}">~New Instrument</a>
                             @foreach($General_info ->instruments as $instrument)
                                 <?php  $sec_increment ++;  ?>
+
                                 <div class="instrument_container">
                                     <div class="panel-group">
                                         <div class="panel panel-default">
