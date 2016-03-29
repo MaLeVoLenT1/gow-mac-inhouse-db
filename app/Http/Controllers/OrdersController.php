@@ -59,7 +59,7 @@ class OrdersController extends Controller {
 	public function update($id, OrderRequest $request)
 	{
 		$User_Input= Input::all();
-		
+
         $General = General_info::findorfail($id);
         $General->update($request-> all());
 		$instruments = Instrument::where('general_info_id', '=', $id)->get();
@@ -82,17 +82,45 @@ class OrdersController extends Controller {
 						$instrument['design_status'] = $User_Input['design_status_'.$cycle];
 						$instrument -> save();
 
+						$x = 0;
+						while($x >= 0) {
+							foreach (Input::get('impurity_id') as $id){
+								$impurity = Impurities::where('id', '=', $id)->firstOrFail();
+								if (!isset(Input::get('impurity_name')[$x])){$x = -100;}
+								if (isset(Input::get('impurity_name')[$x]) && $impurity['name'] != Input::get('impurity_name')[$x]){
+									$impurity['name'] = Input::get('impurity_name')[$x];
+								}
+								if (isset(Input::get('impurity_percent')[$x]) && $impurity['percentage'] != Input::get('impurity_percent')[$x]){
+									$impurity['percentage'] = Input::get('impurity_percent')[$x];
+								}
+								$impurity ->save();
+							}
+							$x++;
+						}
 
+						$y = 0;
+						while ($y >=0){
+							if (isset(Input::get('impurity_name_1')[$y])){
+								$Impurity = new Impurities();
+								$Impurity -> name = Input::get('impurity_name_1')[$y];
+								$Impurity -> percentage = Input::get('impurity_percent_1')[$y];
+								$Impurity -> instrument_id = $instrument['id'];
+								$Impurity ->save();
+								$y ++;
+							}else{
+								$y = -100;
+							}
+
+						}
 						$cycle ++;
-
 					}
+
 				}
 			}else{$cycle = -1;}
-
 		}
+
 		return redirect('customers');
-
-
+		
 	}
 
 //Delete Record
