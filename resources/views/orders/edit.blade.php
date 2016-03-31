@@ -11,7 +11,8 @@
 @section('body')
     <h1>Edit: {!! $General -> customer_name !!}</h1>
     <hr/>
-    {!! Form::model($General, ['method' => 'PATCH', 'action' =>['OrdersController@update', $General -> id]]) !!}
+
+    {!! Form::model($General, ['method' => 'PATCH', 'files'=> true, 'action' =>['OrdersController@update', $General -> id]]) !!}
         @include('partial_views.customer_form')
     <?php $increment = 0; ?>
     @foreach($General ->instruments as $instrument)
@@ -134,6 +135,12 @@
                                 </div>
                             </div>
 
+                            <div id="attachment1" class="clonedInputa">
+                                {!! Form::file('image_1[]') !!}
+                            </div>
+                            <div id="add-del-buttonsz">
+                                <input type="button" id="btnAdda" value="[ + ]" onclick="Attachments(1)">
+                            </div>
 
 
 

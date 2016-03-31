@@ -8,6 +8,7 @@ use App\Instrument;
 use Illuminate\Support\Facades\Input;
 use Request;
 use App\Http\Controllers\Controller;
+use App\Attachments;
 
 
 
@@ -60,6 +61,7 @@ class OrdersController extends Controller {
 	public function update($id, OrderRequest $request)
 	{
 		$User_Input= Input::all();
+		//return $User_Input;
         $General = General_info::findorfail($id);
         $General->update($request-> all());
 		$instruments = Instrument::where('general_info_id', '=', $id)->get();
@@ -140,6 +142,28 @@ class OrdersController extends Controller {
 								$z = -100;
 							}
 						}
+
+						//Grabs Attachments
+						$b =0;
+						//return DD(Input::file('image_1'));
+						while ($b >=0){
+							if (isset(Input::file('image_1')[$b])){
+								$destinationPath = 'uploads'; // upload path
+								$fileName = Input::file('image_1')[$b] -> getClientOriginalName();
+								Input::file('image_1')[$b] -> move($destinationPath, $fileName); // uploading file to given path
+
+								$upload = new Attachments();
+								$upload -> original_filename = $fileName;
+								$upload -> instrument_id =  $instrument['id'];
+								$upload -> save();
+								$b ++;
+							}else{
+								$b = -100;
+							}
+						}
+
+
+
 						$cycle ++;
 					}
 				}
