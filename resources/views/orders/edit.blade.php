@@ -103,6 +103,37 @@
                                 </div>
                             </div>
 
+                            <div class="panel-group">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#collapseBase">Base gas & Concentration</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseBase" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            @foreach($instrument ->base_gas_concentration as $BaseGas)
+                                                {!! Form::hidden('base_gas_concentration_id[]', $BaseGas['id'], ['class' => 'form-control']) !!}
+                                                <div id="gas1" class="clonedInputz">
+                                                    <div class="form-group">
+                                                        {!! Form::label('base_gas_concentration_name', 'Name: ') !!}
+                                                        {!! Form::text('base_gas_concentration_name[]', $BaseGas['name'], ['class' => 'form-control']) !!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                        {!! Form::label('base_gas_concentration', 'Concentration: ') !!}
+                                                        {!! Form::text('base_gas_concentration[]', $BaseGas['concentration'], ['class' => 'form-control']) !!}
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                            <div id="add-del-buttonsz">
+                                                <input type="button" id="btnAddzz" value="[ + ]" onclick="Gas(1)">
+                                                <input type="button" id="btnDelzz" value="[ - ]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
 
 

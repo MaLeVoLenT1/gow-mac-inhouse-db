@@ -1,4 +1,5 @@
 <?php namespace App\Http\Controllers;
+use App\Base_Gas_Concentration;
 use App\General_info;
 use App\Http\Requests;
 use App\Http\Requests\OrderRequest;
@@ -109,12 +110,41 @@ class OrdersController extends Controller {
 								$y = -100;
 							}
 						}
+
+						$a = 0;
+						while($a>= 0) {
+							foreach (Input::get('base_gas_concentration_id') as $id){
+								$gas = Base_Gas_Concentration::where('id', '=', $id)->firstOrFail();
+								if (!isset(Input::get('base_gas_concentration_name')[$a])){$a = -100;}
+								if (isset(Input::get('base_gas_concentration_name')[$a]) && $gas['name'] != Input::get('base_gas_concentration_name')[$a]){
+									$gas['name'] = Input::get('base_gas_concentration_name')[$a];
+								}
+								if (isset(Input::get('base_gas_concentration')[$a]) && $gas['concentration'] != Input::get('base_gas_concentration')[$a]){
+									$gas['concentration'] = Input::get('base_gas_concentration')[$a];
+								}
+								$gas ->save();
+							}
+							$a++;
+						}
+
+						$z = 0;
+						while ($z >=0){
+							if (isset(Input::get('name_1')[$z])){
+								$gas = new Base_Gas_Concentration();
+								$gas -> name = Input::get('name_1')[$z];
+								$gas -> concentration = Input::get('concentration_1')[$z];
+								$gas -> instrument_id = $instrument['id'];
+								$gas ->save();
+								$z ++;
+							}else{
+								$z = -100;
+							}
+						}
 						$cycle ++;
 					}
 				}
 			}else{$cycle = -1;}
 		}
-
 		return redirect('customers');
 
 	}
