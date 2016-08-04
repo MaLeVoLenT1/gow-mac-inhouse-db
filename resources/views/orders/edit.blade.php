@@ -93,6 +93,7 @@
                                                         {!! Form::label('percent', 'Notes: ') !!}
                                                         {!! Form::textarea('impurity_percent[]', $impurity['percentage'], ['class' => 'form-control']) !!}
                                                     </div>
+                                                    <div><a class="delete">Delete</a> | <a class="updated">Update</a></div>
                                                 </div>
                                             @endforeach
                                                 <div id="add-del-buttonsz">
@@ -124,6 +125,7 @@
                                                         {!! Form::label('base_gas_concentration', 'Notes: ') !!}
                                                         {!! Form::textarea('base_gas_concentration[]', $BaseGas['concentration'], ['class' => 'form-control']) !!}
                                                     </div>
+                                                    <div><a class="delete">Delete</a> | <a class="updated">Update</a></div>
                                                 </div>
                                             @endforeach
                                             <div id="add-del-buttonsz">
@@ -141,6 +143,7 @@
                             <div id="add-del-buttonsz">
                                 <input type="button" id="btnAdda" value="[ + ]" onclick="Attachments(1)">
                             </div>
+                            <div><a class="delete">Delete</a> | <a class="updated">Update</a></div>
 
 
 

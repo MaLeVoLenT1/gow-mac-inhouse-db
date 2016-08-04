@@ -17,7 +17,7 @@ function Gas(instrument){
         '<div class="form-group"> ' +
         '<label for="concentration_' + instrument +'">Notes: </label> ' +
         '<input class="form-control" name="concentration_' + instrument +'[]" type="text"> ' +
-        '</div> '
+        '</div><div><a class="delete">Delete</a> | <a class="updated">Update</a></div> '
     );
     $('#gas' + instrument).after(newElem);
 }
@@ -36,7 +36,7 @@ function Impurity(instrument){
         '<div class="form-group"> ' +
         '<label for="impurity_percent_' + instrument +'">Notes: </label> ' +
         '<input class="form-control" name="impurity_percent_' + instrument +'[]" type="text"> ' +
-        '</div> '
+        '</div> <div><a class="delete">Delete</a> | <a class="updated">Update</a></div>'
     );
     $('#impurity' + instrument).after(newElem);
 }
@@ -147,7 +147,7 @@ $(function () {
                                                 '<div class="form-group">' +
                                                     '<label for="concentration' + newNum +'">Notes: </label>' +
                                                     '<input class="form-control" name="concentration_' + newNum +'[]" type="text">' +
-                                                '</div>' +
+                                                '</div><div><a class="delete">Delete</a> | <a class="updated">Update</a></div>' +
                                             '</div> ' +
                                             '<div id="add-del-buttonsz">' +
                                                 '<input type="button" id="btnAddzz" value="[ + ]" onclick="Gas(' + newNum + ')">' +
@@ -178,7 +178,7 @@ $(function () {
                                                     '<label for="percent' + newNum +'">Notes: </label>' +
                                                     '<input class="form-control" name="impurity_percent_' + newNum +'[]" type="text">' +
 
-                                                '</div>' +
+                                                '</div><div><a class="delete">Delete</a> | <a class="updated">Update</a></div>' +
                                             '</div>' +
                                             '<div id="add-del-buttonsz">' +
                                                 '<input type="button" id="btnAddImpurity" value="[ + ]" onclick="Impurity(' + newNum +')">' +

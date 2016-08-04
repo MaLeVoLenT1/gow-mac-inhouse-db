@@ -11,7 +11,6 @@
         {!! Form::label('concentration', 'Notes: ') !!}
         {!! Form::text('concentration_1[]', null, ['class' => 'form-control']) !!}
     </div>
-
 </div>
 <div id="add-del-buttonsz">
     <input type="button" id="btnAddzz" value="[ + ]" onclick="Gas(1)">
