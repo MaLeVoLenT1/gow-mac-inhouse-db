@@ -12,7 +12,7 @@
 				display: table;
 				font-weight: 100;
 				font-family: 'Lato';
-				background-color: blue;
+				background-color: white;
 			}
 
 			.container {

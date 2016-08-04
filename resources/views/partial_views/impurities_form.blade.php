@@ -6,7 +6,7 @@
     </div>
 
     <div class="form-group">
-        {!! Form::label('percent', 'Percentage: ') !!}
+        {!! Form::label('percent', 'Notes: ') !!}
         {!! Form::text('impurity_percent_1[]', null, ['class' => 'form-control']) !!}
     </div>
 

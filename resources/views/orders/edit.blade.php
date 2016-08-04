@@ -90,8 +90,8 @@
                                                         {!! Form::text('impurity_name[]', $impurity['name'], ['class' => 'form-control']) !!}
                                                     </div>
                                                     <div class="form-group">
-                                                        {!! Form::label('percent', 'Percentage: ') !!}
-                                                        {!! Form::text('impurity_percent[]', $impurity['percentage'], ['class' => 'form-control']) !!}
+                                                        {!! Form::label('percent', 'Notes: ') !!}
+                                                        {!! Form::textarea('impurity_percent[]', $impurity['percentage'], ['class' => 'form-control']) !!}
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -121,8 +121,8 @@
                                                         {!! Form::text('base_gas_concentration_name[]', $BaseGas['name'], ['class' => 'form-control']) !!}
                                                     </div>
                                                     <div class="form-group">
-                                                        {!! Form::label('base_gas_concentration', 'Concentration: ') !!}
-                                                        {!! Form::text('base_gas_concentration[]', $BaseGas['concentration'], ['class' => 'form-control']) !!}
+                                                        {!! Form::label('base_gas_concentration', 'Notes: ') !!}
+                                                        {!! Form::textarea('base_gas_concentration[]', $BaseGas['concentration'], ['class' => 'form-control']) !!}
                                                     </div>
                                                 </div>
                                             @endforeach

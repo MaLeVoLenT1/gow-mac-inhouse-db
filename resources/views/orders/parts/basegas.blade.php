@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <table class="table table-hover table-striped">
 
-                    <thead><tr>     <th>Base Gas</th>   <th>Concentration</th>      </tr></thead>
+                    <thead><tr>     <th>Base Gas</th>   <th>Notes</th>      </tr></thead>
 
                     <tbody>
                     @foreach($instrument -> base_gas_concentration as $base_gas)

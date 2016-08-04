@@ -9,7 +9,7 @@
             <div class="panel-body">
                 <table class="table table-hover table-striped">
 
-                    <thead><tr>     <th>Impurity</th>   <th>Percentage</th>      </tr></thead>
+                    <thead><tr>     <th>Impurity</th>   <th>Notes</th>      </tr></thead>
 
                     <tbody>
                     @foreach($instrument -> impurities as $impurity)

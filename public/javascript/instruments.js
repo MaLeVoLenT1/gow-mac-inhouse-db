@@ -15,7 +15,7 @@ function Gas(instrument){
         '<input class="form-control" name="name_' + instrument +'[]" type="text"> ' +
         '</div> ' +
         '<div class="form-group"> ' +
-        '<label for="concentration_' + instrument +'">Concentration: </label> ' +
+        '<label for="concentration_' + instrument +'">Notes: </label> ' +
         '<input class="form-control" name="concentration_' + instrument +'[]" type="text"> ' +
         '</div> '
     );
@@ -34,7 +34,7 @@ function Impurity(instrument){
         '<input class="form-control" name="impurity_name_' + instrument +'[]" type="text"> ' +
         '</div> ' +
         '<div class="form-group"> ' +
-        '<label for="impurity_percent_' + instrument +'">Percentage: </label> ' +
+        '<label for="impurity_percent_' + instrument +'">Notes: </label> ' +
         '<input class="form-control" name="impurity_percent_' + instrument +'[]" type="text"> ' +
         '</div> '
     );
@@ -145,7 +145,7 @@ $(function () {
                                                     '<input class="form-control" name="name_' + newNum +'[]" type="text">' +
                                                 '</div> ' +
                                                 '<div class="form-group">' +
-                                                    '<label for="concentration' + newNum +'">Concentration: </label>' +
+                                                    '<label for="concentration' + newNum +'">Notes: </label>' +
                                                     '<input class="form-control" name="concentration_' + newNum +'[]" type="text">' +
                                                 '</div>' +
                                             '</div> ' +
@@ -175,7 +175,7 @@ $(function () {
                                                     '<input class="form-control" name="impurity_name_' + newNum +'[]" type="text">' +
                                                 '</div>' +
                                                 '<div class="form-group">' +
-                                                    '<label for="percent' + newNum +'">Percentage: </label>' +
+                                                    '<label for="percent' + newNum +'">Notes: </label>' +
                                                     '<input class="form-control" name="impurity_percent_' + newNum +'[]" type="text">' +
 
                                                 '</div>' +
